@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .button:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    {% if es_estudiante or es_admin %}
+        <h1>Bienvenido {{ user.username }}</h1>
+
+    {% else %}
+        <h1>No tiene permiso para acceder a esta pagina</h1>
+    {% endif %}
+
+    <a href="{% url 'logout' %}" class="button">Cerrar sesion</a>
+</body>
+</html>
